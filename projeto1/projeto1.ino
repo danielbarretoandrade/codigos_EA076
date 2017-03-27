@@ -1,7 +1,7 @@
 #include <TimerOne.h>
 #include <avr/sleep.h>
 
-#define verde_carros 0
+#define verde_carros 0 //oi
 #define amarelo_carros 1
 #define vermelho_carros 2
 #define verde_pedestres 3
