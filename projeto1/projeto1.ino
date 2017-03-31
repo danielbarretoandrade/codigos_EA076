@@ -58,6 +58,8 @@ void RSI_botao()
   //avalia_estado();
 }
 
+// essa função recebe um conjunto de variaveis que determina como estará o led correstondente a essa variavel
+// 0 -> led apagado, 1-> led acesso, 2 -> led piscando
 void configura_sinal(int a, int b, int c, int d, int e)
 {
   leds[verde_carros] = a;
@@ -68,12 +70,17 @@ void configura_sinal(int a, int b, int c, int d, int e)
   leitura_vetor();
 }
 
+// essa funcao é chamada pela funcao de configura sinal e é responsavel por chamar fazer o led ser aceso, apagar ou piscar
 void leitura_vetor(){
   for(int i=0; i<5; i++){
+    // apaga led
     if(leds[i]==0)
       digitalWrite(i+5,LOW);
+    // acende led
     else if(leds[i]==1)
       digitalWrite(i+5,HIGH);
+    // led pisca, atraves da variavel tempo_piscar, que é incrementada a cada 0,1s
+    // de acordo com a logica, metada do tempo ele fica aceso e metade apagado
     else if(leds[i]==2){
       if(tempo_piscar%10 < 5)
         digitalWrite(i+5,HIGH);
