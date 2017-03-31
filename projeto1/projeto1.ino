@@ -90,7 +90,7 @@ void leitura_vetor(){
   }
 }
 
-
+//funcao que diz o que o semaforo deve fazer de acordo com o estado da maquina
 void avalia_estado()
 {
   if(estado==0)
@@ -102,6 +102,7 @@ void avalia_estado()
 
 }
 
+// configura os leds para abrir para os carros e fechar para os pedestres
 void aberto_carros()
 {
   configura_sinal(1,0,0,0,1);
