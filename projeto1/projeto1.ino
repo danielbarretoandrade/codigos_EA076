@@ -1,22 +1,24 @@
 #include <TimerOne.h>
 #include <avr/sleep.h>
 
-#define verde_carros 0 //oi
+//associa labels dos leds com seus respectivos numeros de pino
+#define verde_carros 0 
 #define amarelo_carros 1
 #define vermelho_carros 2
 #define verde_pedestres 3
 #define vermelho_pedestres 4
 
+//define os labels para os pinos de entrada(digital e analogico)
 #define pino_botao 2
 #define pino_LDR A0
 
-unsigned int tempo_piscar;
-unsigned int tempo_espera;
-unsigned int tempo_noite;
+unsigned int tempo_piscar; //variavel que é incrementada a cada interrupção de tempo(0,1s)
+unsigned int tempo_espera; // variavel incrementa a cada 1s e sempre que o estado é 1(abre para pedestre)
+unsigned int tempo_noite; // variavel que incrementa quando esta de noite e a cada 1s
 
-int conta_tempo_noite = 0;
-volatile int estado = 0;
-int leds[5];
+int conta_tempo_noite = 0; // ativa a contagem de tempo quando esta a noite
+volatile int estado = 0; // variavel que ativa os estados
+int leds[5]; // vetor de leds
 
 void RSI_timer()
 {
